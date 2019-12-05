@@ -10,13 +10,14 @@
 
 ### Association
 - has_many :groups, through: :groups_users
+- hasmany :groups_users
 - has_many :messages
 
 ## table: messages
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
+|body|text|-|
 |image|string|-|
 |group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
@@ -33,6 +34,7 @@
 
 ### Association
 - has_many :users, through: :groups_users
+- hasmany :groups_users
 - has_many :messages
 
 ## table: groups_users
