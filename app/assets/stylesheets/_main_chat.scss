@@ -1,0 +1,25 @@
+$info_height: 100px;
+$create_height: 90px;
+
+.main_chat{
+  width: calc(100vw - 300px);
+  position: relative;
+  &__group_info{
+    background-color: #fff;
+    border: #eeeeee;
+    height: $info_height;
+    width: 100%;
+  }
+  &__body{
+    background-color: #fafafa;
+    height: calc(100vh - #{$info_height} - #{$create_height} );
+    width: 100%;
+  }
+  &__create{
+    background-color: #d2d2d2;
+    height: $create_height;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+}

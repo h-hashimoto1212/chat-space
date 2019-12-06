@@ -1,0 +1,34 @@
+.side_bar{
+  background-color: #2f3e51;
+  width: 300px;
+  height: 100vh;
+
+  &__user{
+    background-color: #253141;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 16px;
+    padding: 20px;
+    position: relative;
+
+    &__name{
+      font-weight: bold;
+      width: calc(300px - 40px - 60px);
+    }
+    &__icons{
+      width: 60px;
+      line-height: 16px;
+      display: flex;
+      &__group{
+
+      }
+      &__naccount{
+  
+      }
+    }
+
+  }
+}
