@@ -15,19 +15,19 @@
         padding: 35px 0 15px 40px;
       }
       &__member{
-        color: #999999;
+        color: $gray;
         font-size: 12px;
         padding-left: 40px;
       }
     }
     &__edit{
-      color: #38aef0;
+      color: $light_blue;
       line-height: 40px;
       height: 40px;
       padding: 0 20px;
       margin-right: 40px;
       margin-top: 30px;
-      border: 1px solid #38aef0;
+      border: 1px solid $light_blue;
     }
   }
   &__messages{
@@ -46,7 +46,7 @@
           font-weight: bold;
         }
         &__time_stamp{
-          color: #999999;
+          color: $gray;
           font-size: 12px;
           margin-left: 10px;
         }
@@ -100,7 +100,7 @@
     }
     &__send{
       color: #fff;
-      background-color: #38aef0;
+      background-color: $light_blue;
       font-size: 16px;
       width: 100px;
       height: 50px;

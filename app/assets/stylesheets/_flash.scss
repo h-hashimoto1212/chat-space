@@ -1,11 +1,11 @@
 .flash{
   &__alert{
-    background-color: #f35500;
+    background-color: $alert_red;
     text-align: center;
     color: #ffffff;
   }
   &__notice{
-    background-color:#38aef0;
+    background-color: $light_blue;
     text-align: center;
     color: #ffffff;
   }
