@@ -1,0 +1,14 @@
+.side_bar
+  .side_bar__user
+    .side_bar__user__name
+      user name
+    .side_bar__user__icons
+      = link_to '#', class: "side_bar__user__icons__group" do
+        = icon('fas', 'edit')
+      = link_to '#', class: "side_bar__user__icons__account" do
+        = icon('fas', 'cog')
+  .side_bar__group_list
+    .side_bar__group_list__name
+      techcamp
+    .side_bar__group_list__new_message
+      no message
