@@ -1,8 +1,12 @@
 .flash{
   &__alert{
-    background-color: #f08b38;
+    background-color: #f35500;
+    text-align: center;
+    color: #ffffff;
   }
   &__notice{
     background-color:#38aef0;
+    text-align: center;
+    color: #ffffff;
   }
 }
