@@ -22,13 +22,28 @@
       width: 60px;
       line-height: 16px;
       display: flex;
+      justify-content: flex-end;
+      text-decoration: none;
       &__group{
-
+        color: #fff;
       }
-      &__naccount{
-  
+      &__account{
+        color: #fff;
+        padding-left: 5px;
       }
     }
-
+  }
+  &__group_list{
+    width: 100%;
+    color: #ffffff;
+    font-weight: bold;
+    &__name{
+      font-size: 15px;
+      padding: 20px 20px 5px 20px;
+    }
+    &__new_message{
+      font-size: 11px;
+      padding: 0 20px 40px 20px;
+    }
   }
 }

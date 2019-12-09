@@ -1,25 +1,112 @@
-$info_height: 100px;
-$create_height: 90px;
 
 .main_chat{
   width: calc(100vw - 300px);
   position: relative;
   &__group_info{
     background-color: #fff;
-    border: #eeeeee;
-    height: $info_height;
+    height: 100px;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    &--left{
+      &__name{
+        color: #333333;
+        font-size: 20px;
+        padding: 35px 0 15px 40px;
+      }
+      &__member{
+        color: #999999;
+        font-size: 12px;
+        padding-left: 40px;
+      }
+    }
+    &__edit{
+      color: #38aef0;
+      line-height: 40px;
+      height: 40px;
+      padding: 0 20px;
+      margin-right: 40px;
+      margin-top: 30px;
+      border: 1px solid #38aef0;
+    }
   }
-  &__body{
+  &__messages{
     background-color: #fafafa;
-    height: calc(100vh - #{$info_height} - #{$create_height} );
+    height: calc(100vh - 100px - 90px);
     width: 100%;
+    &__message{
+      padding-top: 35px;
+      padding-left: 40px;
+      &--top{
+        display: flex;
+        margin-bottom: 12px;
+        &__user{
+          color: #333333;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        &__time_stamp{
+          color: #999999;
+          font-size: 12px;
+          margin-left: 10px;
+        }
+      }
+      &__text{
+        color: #434a54;
+        font-size: 14px;
+        padding-bottom: 46px;
+      }
+      &__image{
+        
+      }
+    }
   }
   &__create{
     background-color: #d2d2d2;
-    height: $create_height;
+    height: 90px;
     width: 100%;
     position: absolute;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
     bottom: 0;
+    &__box{
+      background-color: #fff;
+      width: 100%;
+      line-height: 50px;
+      margin-left: 40px;
+      margin-right: 15px;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      &__new_message{
+        width: 100%;
+        border-style: none;
+        height: 50px;
+        padding: 0 10px;
+      }
+      &__img_btn{
+        position: absolute;
+        right: 10px;
+        z-index: 1;
+        & label{
+          cursor: pointer;
+          font-size: 20px;
+        }
+        & input{
+          display: none;
+        }
+      }
+    }
+    &__send{
+      color: #fff;
+      background-color: #38aef0;
+      font-size: 16px;
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+      padding: 0 30px;
+      margin-right: 40px;
+    }
   }
 }
