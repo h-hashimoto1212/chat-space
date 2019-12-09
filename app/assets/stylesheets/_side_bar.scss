@@ -1,10 +1,10 @@
 .side_bar{
-  background-color: #2f3e51;
+  background-color: $dark_blue;
   width: 300px;
   height: 100vh;
 
   &__user{
-    background-color: #253141;
+    background-color: $darker_blue;
     height: 100px;
     width: 100%;
     display: flex;
