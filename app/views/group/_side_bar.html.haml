@@ -3,12 +3,14 @@
     .side_bar__user__name
       = current_user.name
     .side_bar__user__icons
-      = link_to '#', class: "side_bar__user__icons__group" do
+      = link_to new_group_path, class: "side_bar__user__icons__group" do
         = icon('fas', 'edit')
       = link_to edit_user_path(current_user), class: "side_bar__user__icons__account" do
         = icon('fas', 'cog')
   .side_bar__group_list
-    .side_bar__group_list__name
-      techcamp
-    .side_bar__group_list__new_message
-      no message
+    - @group.each do |g|
+      = link_to '#' do
+        .side_bar__group_list__name
+          = g.group_name
+          .side_bar__group_list__new_message
+            new message
