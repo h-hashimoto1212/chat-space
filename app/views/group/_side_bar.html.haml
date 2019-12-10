@@ -9,6 +9,7 @@
         = icon('fas', 'cog')
   .side_bar__group_list
     .side_bar__group_list__name
-      techcamp
-    .side_bar__group_list__new_message
-      no message
+      - @group.each do |g|
+        = g.group_name
+        .side_bar__group_list__new_message
+          new message
