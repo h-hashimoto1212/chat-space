@@ -37,6 +37,10 @@
     width: 100%;
     color: #ffffff;
     font-weight: bold;
+    & a{
+    text-decoration: none;
+    color: #ffffff;
+    }
     &__name{
       font-size: 15px;
       padding: 20px 20px 5px 20px;
