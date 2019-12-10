@@ -3,7 +3,7 @@
     .side_bar__user__name
       = current_user.name
     .side_bar__user__icons
-      = link_to '#', class: "side_bar__user__icons__group" do
+      = link_to new_group_path, class: "side_bar__user__icons__group" do
         = icon('fas', 'edit')
       = link_to edit_user_path(current_user), class: "side_bar__user__icons__account" do
         = icon('fas', 'cog')
