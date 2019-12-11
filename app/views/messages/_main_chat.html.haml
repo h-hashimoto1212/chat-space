@@ -17,7 +17,7 @@
       .main_chat__messages__message__text
         message
       %img.main_chat__messages__message__image(src="" alt="")
-  = form_for @message, html: {class: "main_chat__create"} do |f|
+  = form_for [@group, @message], html: {class: "main_chat__create"} do |f|
     .main_chat__create__box
       =f.text_field :body, placeholder: "type a message", class: "main_chat__create__box__new_message"       
       %label.main_chat__create__box__img_btn
