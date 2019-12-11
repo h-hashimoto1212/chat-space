@@ -83,17 +83,16 @@
         width: 100%;
         border-style: none;
         height: 50px;
+        margin-right: 10px;
         padding: 0 10px;
       }
       &__img_btn{
         position: absolute;
         right: 10px;
         z-index: 1;
-        & label{
-          cursor: pointer;
-          font-size: 20px;
-        }
-        & input{
+        cursor: pointer;
+        font-size: 20px;
+        &__link{
           display: none;
         }
       }

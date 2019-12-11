@@ -17,12 +17,10 @@
       .main_chat__messages__message__text
         message
       %img.main_chat__messages__message__image(src="" alt="")
-    .main_chat__create
-      .main_chat__create__box
-        %input.main_chat__create__box__new_message{placeholder: "type a message", type: "text"}
-        .main_chat__create__box__img_btn
-          %label.main_chat__create__box__img_btn
-            = icon('far', 'image')
-            %input.main_chat__create__box__img_btn{type: "file"}
-      .main_chat__create__send
-        Send
+  = form_for @message, html: {class: "main_chat__create"} do |f|
+    .main_chat__create__box
+      =f.text_field :body, placeholder: "type a message", class: "main_chat__create__box__new_message"       
+      %label.main_chat__create__box__img_btn
+        = icon('far', 'image')
+        = f.file_field :upload_file, class: "main_chat__create__box__img_btn__link"
+    = f.submit "Send", class: "main_chat__create__send"
