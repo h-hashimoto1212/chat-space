@@ -9,18 +9,11 @@
       Edit
   .main_chat__messages
     .main_chat__messages__message
-      .main_chat__messages__message--top
-        .main_chat__messages__message--top__user
-          newguy
-        .main_chat__messages__message--top__time_stamp
-          2019/12/06(Fri) 17:20:00
-      .main_chat__messages__message__text
-        message
-      %img.main_chat__messages__message__image(src="" alt="")
+    = render @messages
   = form_for [@group, @message], html: {class: "main_chat__create"} do |f|
     .main_chat__create__box
       =f.text_field :body, placeholder: "type a message", class: "main_chat__create__box__new_message"
       %label.main_chat__create__box__img_btn
         = icon('far', 'image')
-        = f.file_field :upload_file, class: "main_chat__create__box__img_btn__link"
+        = f.file_field :image, class: "main_chat__create__box__img_btn__link"
     = f.submit "Send", class: "main_chat__create__send"
