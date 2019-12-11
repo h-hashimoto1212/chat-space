@@ -6,6 +6,8 @@
       .main_chat__group_info--left__member
         members
     .main_chat__group_info__edit
+          = g.name + "  "
+    = link_to "#", class: "main_chat__group_info__edit" do
       Edit
   .main_chat__messages
     .main_chat__messages__message
