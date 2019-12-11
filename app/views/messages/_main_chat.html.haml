@@ -2,10 +2,10 @@
   .main_chat__group_info
     .main_chat__group_info--left
       .main_chat__group_info--left__name
-        grop
+        = @group.group_name
       .main_chat__group_info--left__member
-        members
-    .main_chat__group_info__edit
+        members:
+        - @group.users.each do |g|
           = g.name + "  "
     = link_to "#", class: "main_chat__group_info__edit" do
       Edit
