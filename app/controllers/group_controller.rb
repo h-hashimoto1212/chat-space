@@ -1,6 +1,5 @@
 class GroupController < ApplicationController
   before_action :set_group, only: [:edit, :update]
-  before_action :new_message
 
   def index
     @group = Group.all
@@ -41,8 +40,5 @@ class GroupController < ApplicationController
     @group = Group.find(params[:id])
   end
 
-  def new_message
-    @message = Message.new
-  end
   
 end
