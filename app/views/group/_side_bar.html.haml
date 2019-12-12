@@ -8,9 +8,9 @@
       = link_to edit_user_path(current_user), class: "side_bar__user__icons__account" do
         = icon('fas', 'cog')
   .side_bar__group_list
-    - @group.each do |g|
-      = link_to '#' do
+    - current_user.groups.each do |g|
+      = link_to group_messages_path(g) do
         .side_bar__group_list__name
           = g.group_name
           .side_bar__group_list__new_message
-            new message
+            = g.show_last_message
