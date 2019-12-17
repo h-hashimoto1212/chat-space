@@ -35,6 +35,7 @@
     background-color: #fafafa;
     height: calc(100vh - 100px - 90px);
     width: 100%;
+    overflow: scroll;
     & .message{
       padding-top: 35px;
       padding-left: 40px;
@@ -74,9 +75,7 @@
     & .box{
       background-color: #fff;
       width: 100%;
-      line-height: 50px;
-      margin-left: 40px;
-      margin-right: 15px;
+      margin: 0 40px 0 10px;
       position: relative;
       display: flex;
       justify-content: space-between;
@@ -89,9 +88,10 @@
       & .img_btn{
         position: absolute;
         right: 10px;
+        top: 10px;
         z-index: 1;
         cursor: pointer;
-        font-size: 20px;
+        font-size: 1.3rem;
         &__link{
           display: none;
         }
