@@ -1,11 +1,10 @@
 .message
-.message
-  .main_chat__messages__message--top
-    .main_chat__messages__message--top__user
+  .message--top
+    .message--top__user
       = message.user.name
-    .main_chat__messages__message--top__time_stamp
+    .message--top__time_stamp
       = message.created_at
-  .main_chat__messages__message__text
+  .message__text
     - if message.body.present?
       = message.body
-  = image_tag message.image.url, class: 'main_chat__messages__message__image' if message.image.present?
+  = image_tag message.image.url, class: 'message__image' if message.image.present?
