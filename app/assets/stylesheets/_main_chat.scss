@@ -2,7 +2,7 @@
 .main_chat{
   width: calc(100vw - 300px);
   position: relative;
-  &__group_info{
+  & .group_info{
     background-color: #fff;
     height: 100px;
     width: 100%;
@@ -20,7 +20,7 @@
         padding-left: 40px;
       }
     }
-    &__edit{
+    & .edit{
       color: $light_blue;
       line-height: 40px;
       height: 40px;
@@ -31,11 +31,12 @@
       text-decoration: none;
     }
   }
-  &__messages{
+  & .messages{
     background-color: #fafafa;
     height: calc(100vh - 100px - 90px);
     width: 100%;
-    &__message{
+    overflow: scroll;
+    & .message{
       padding-top: 35px;
       padding-left: 40px;
       &--top{
@@ -62,7 +63,7 @@
       }
     }
   }
-  &__create{
+  & .create{
     background-color: #d2d2d2;
     height: 90px;
     width: 100%;
@@ -71,33 +72,32 @@
     justify-content: space-between;
     padding: 20px 0;
     bottom: 0;
-    &__box{
+    & .box{
       background-color: #fff;
       width: 100%;
-      line-height: 50px;
-      margin-left: 40px;
-      margin-right: 15px;
+      margin: 0 40px 0 10px;
       position: relative;
       display: flex;
       justify-content: space-between;
-      &__new_message{
+      & .new_message{
         width: 100%;
         border-style: none;
         height: 50px;
         padding: 0 10px;
       }
-      &__img_btn{
+      & .img_btn{
         position: absolute;
         right: 10px;
+        top: 10px;
         z-index: 1;
         cursor: pointer;
-        font-size: 20px;
+        font-size: 1.3rem;
         &__link{
           display: none;
         }
       }
     }
-    &__send{
+    & .send{
       color: #fff;
       background-color: $light_blue;
       font-size: 16px;

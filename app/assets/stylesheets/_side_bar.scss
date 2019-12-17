@@ -35,8 +35,10 @@
   }
   &__group_list{
     width: 100%;
+    height: calc(100vh - 100px);
     color: #ffffff;
     font-weight: bold;
+    overflow: scroll;
     & a{
     text-decoration: none;
     color: #ffffff;
