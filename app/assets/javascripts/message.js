@@ -16,7 +16,7 @@ $(function(){
       $('.messages').animate({ scrollTop : $('.messages')[0].scrollHeight});
     })
     .fail(function(){
-      console.log('fail')
+      alert('error, failed to reload messages')
     })
   }
   var buildMessage = function(message){
