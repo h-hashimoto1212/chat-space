@@ -1,33 +1,53 @@
 $(function(){
-  function buildMessage(message){
-    if (message.image.url) {
+  var reloadMessages = function(){
+    last_message_id = $('.message').slice(-1).data().messageId
+    $.ajax({
+      url: 'api/messages',
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages){
+      var insertHTML = '';
+      $.each(messages, function(){
+        insertHTML += buildMessage
+      });
+      $('.mesages').append(insertHTML);
+      $('.messages').animate({ scrollTop : $('.messages')[0].scrollHeight});
+    })
+    .fail(function(){
+      console.log('fail')
+    })
+  }
+  var buildMessage = function(message){
+      var user_date = ` <div class="message--top">
+                        <div class="message--top__user">
+                          ${message.name}
+                        </div>
+                        <div class="message--top__time_stamp">
+                          ${message.created_at}
+                        </div>
+                        </div>`
+    if (message.text && message.image){
       var html = `<div class="message">
-                    <div class="message--top">
-                      <div class="message--top__user">
-                        ${message.name}
-                      </div>
-                      <div class="message--top__time_stamp">
-                        ${message.created_at}
-                      </div>
-                    </div>
+                    ${user_date}
                     <div class="message__text">
                         ${message.text}
                     </div>
-                    <img class="message__image" src="${message.image.url}" alt="">
+                    <img class="message__image" src="${message.image}">
                   </div>`
-    } else {
+    } else if (message.text) {
       var html = `<div class="message">
-                    <div class="message--top">
-                      <div class="message--top__user">
-                        ${message.name}
-                      </div>
-                      <div class="message--top__time_stamp">
-                        ${message.created_at}
-                      </div>
-                    </div>
+                    ${user_date}
                     <div class="message__text">
                       ${message.text}
                     </div>
+                  </div>`
+    } else if (message.image) {
+      var html = `<div class="message">
+                    ${user_date}
+                    </div>
+                    <img class="message__image" src="${message.image}">
                   </div>`
     }
     return html;
@@ -55,4 +75,8 @@ $(function(){
       alert('error');
     })
   })
+  if(document.URL.match('/messages')){
+    $('.messages').animate({ scrollTop : $('.messages')[0].scrollHeight});
+    setInterval(reloadMessages,7000);
+  }
 });
