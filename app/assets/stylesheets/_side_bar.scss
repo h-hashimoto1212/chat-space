@@ -13,7 +13,7 @@
     font-size: 16px;
     padding: 20px;
     position: relative;
-
+    justify-content: space-between;
     &__name{
       font-weight: bold;
       width: calc(300px - 40px - 60px);
@@ -24,10 +24,10 @@
       display: flex;
       justify-content: flex-end;
       text-decoration: none;
-      &__group{
+      & #group{
         color: #fff;
       }
-      &__account{
+      & #account{
         color: #fff;
         padding-left: 5px;
       }
