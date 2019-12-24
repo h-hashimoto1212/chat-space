@@ -1,5 +1,4 @@
 $(function(){
-  $('.messages').animate({ scrollTop : $('.messages')[0].scrollHeight});
   var reloadMessages = function(){
     last_message_id = $('.message').slice(-1).data().messageId
     $.ajax({
@@ -76,6 +75,7 @@ $(function(){
     })
   })
   if(document.URL.match('/messages')){
+    $('.messages').animate({ scrollTop : $('.messages')[0].scrollHeight});
     setInterval(reloadMessages,7000);
   }
 });
