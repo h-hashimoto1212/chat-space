@@ -1,8 +1,8 @@
 $(function(){
-  if(document.URL.match('/messages')){
+  if(document.URL.match(/\/groups\/\d+\/messages/)){
     $('.messages').animate({ scrollTop : $('.messages')[0].scrollHeight});
     var reloadMessages = function(){
-      last_message_id = $('.message').slice(-1).data().messageId
+      last_message_id = $('.message:last').data("message-id")
       $.ajax({
         url: 'api/messages',
         type: 'GET',
@@ -10,11 +10,13 @@ $(function(){
         data: {id: last_message_id}
       })
       .done(function(messages){
-        var insertHTML = '';
-        $.each(messages, function(){
-          insertHTML += buildMessage
-        });
-        $('.mesages').append(insertHTML);
+        if (messages.length !== 0){
+          var insertHTML = '';
+          $.each(messages, function(){
+            insertHTML += buildMessage
+          });
+          $('.mesages').append(insertHTML);
+        }
       })
       .fail(function(){
         alert('error, failed to reload messages')
