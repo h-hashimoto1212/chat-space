@@ -12,10 +12,13 @@ $(function(){
       .done(function(messages){
         if (messages.length !== 0){
           var insertHTML = '';
-          $.each(messages, function(){
-            insertHTML += buildMessage
+          $.each(messages, function(i, message){
+            insertHTML += buildMessage(message)
           });
           $('.mesages').append(insertHTML);
+          $('.messages').animate({ scrollTop : $('.messages')[0].scrollHeight});
+          $('#new_message').get(0).reset();
+          $('.send').prop('disabled', false);
         }
       })
       .fail(function(){
@@ -70,9 +73,6 @@ $(function(){
       .done(function(data){
         var html = buildMessage(data);
         $('.messages').append(html);
-        $('.messages').animate({ scrollTop : $('.messages')[0].scrollHeight});
-        $('#new_message').get(0).reset();
-        $('.send').prop('disabled', false);
       })
       .fail(function(){
         alert('error');
