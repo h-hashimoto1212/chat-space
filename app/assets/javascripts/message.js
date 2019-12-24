@@ -13,7 +13,6 @@ $(function(){
         insertHTML += buildMessage
       });
       $('.mesages').append(insertHTML);
-      $('.messages').animate({ scrollTop : $('.messages')[0].scrollHeight});
     })
     .fail(function(){
       alert('error, failed to reload messages')
