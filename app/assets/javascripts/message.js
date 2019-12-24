@@ -1,28 +1,4 @@
 $(function(){
-  var reloadMessages = function(){
-    last_message_id = $('.message:last').data("message-id");
-    $.ajax({
-      url: 'api/messages',
-      type: 'GET',
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-    .done(function(messages){
-      if (messages.length !== 0){
-        var insertHTML = '';
-        $.each(messages, function(i, message){
-          insertHTML += buildMessage(message)
-        });
-        $('.mesages').append(insertHTML);
-        $('.messages').animate({ scrollTop : $('.messages')[0].scrollHeight});
-        $('#new_message').get(0).reset();
-        $('.send').prop('disabled', false);
-      }
-    })
-    .fail(function(){
-      alert('error, failed to reload messages')
-    })
-  }
   var buildMessage = function(message){
       var user_date = ` <div class="message--top">
                         <div class="message--top__user">
@@ -33,28 +9,52 @@ $(function(){
                         </div>
                         </div>`
     if (message.text && message.image){
-      var html = `<div class="message">
+      var html = `<div class="message" data-message-id="${message.id}">
                     ${user_date}
                     <div class="message__text">
                         ${message.text}
                     </div>
                     <img class="message__image" src="${message.image}">
                   </div>`
-    } else if (message.text) {
-      var html = `<div class="message">
+    } else if (message.text){
+      var html = `<div class="message" data-message-id="${message.id}">
                     ${user_date}
                     <div class="message__text">
                       ${message.text}
                     </div>
                   </div>`
-    } else if (message.image) {
-      var html = `<div class="message">
+    } else if (message.image){
+      var html = `<div class="message" data-message-id="${message.id}">
                     ${user_date}
                     </div>
                     <img class="message__image" src="${message.image}">
                   </div>`
     }
     return html;
+  }
+  var reloadMessages = function(){
+    last_message_id = $('.message:last').data("message-id");
+    $.ajax({
+      url: "api/messages",
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages){
+      if (messages.length !== 0){
+        var insertHTML = '';
+        $.each(messages, function(i, message){
+          insertHTML += buildMessage(message)
+        });
+        $('.messages').append(insertHTML);
+        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+        $('#new_message')[0].reset();
+        $('.send').prop('disabled', false);
+      }
+    })
+    .fail(function(){
+      alert('error, failed to reload messages')
+    })
   }
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -71,13 +71,15 @@ $(function(){
     .done(function(data){
       var html = buildMessage(data);
       $('.messages').append(html);
+      $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+      $('#new_message')[0].reset();
+      $('.send').prop('disabled', false);
     })
     .fail(function(){
       alert('error');
     })
   })
   if(document.URL.match(/\/groups\/\d+\/messages/)){
-    $('.messages').animate({ scrollTop : $('.messages')[0].scrollHeight});
     setInterval(reloadMessages,7000);
   }
 });
