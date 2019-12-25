@@ -1,4 +1,7 @@
 $(function(){
+  function scroll_recent(){
+    $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+  }
   var buildMessage = function(message){
       var user_date = ` <div class="message--top">
                         <div class="message--top__user">
@@ -47,7 +50,7 @@ $(function(){
           insertHTML += buildMessage(message)
         });
         $('.messages').append(insertHTML);
-        scroll_recent
+        scroll_recent();
         $('#new_message')[0].reset();
         $('.send').prop('disabled', false);
       }
@@ -71,7 +74,7 @@ $(function(){
     .done(function(data){
       var html = buildMessage(data);
       $('.messages').append(html);
-      scroll_recent
+      scroll_recent();
       $('#new_message')[0].reset();
       $('.send').prop('disabled', false);
     })
@@ -81,6 +84,6 @@ $(function(){
   })
   if(document.URL.match(/\/groups\/\d+\/messages/)){
     setInterval(reloadMessages,7000);
-    var scroll_recent = $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+    scroll_recent();
   }
 });
