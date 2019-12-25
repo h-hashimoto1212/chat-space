@@ -1,5 +1,4 @@
 $(function(){
-  var scroll_recent = $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
   var buildMessage = function(message){
       var user_date = ` <div class="message--top">
                         <div class="message--top__user">
@@ -82,5 +81,6 @@ $(function(){
   })
   if(document.URL.match(/\/groups\/\d+\/messages/)){
     setInterval(reloadMessages,7000);
+    var scroll_recent = $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
   }
 });
